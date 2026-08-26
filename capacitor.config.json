@@ -1,0 +1,6 @@
+{
+  "appId": "com.geetadrishti.app",
+  "appName": "GeetaDrishti",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

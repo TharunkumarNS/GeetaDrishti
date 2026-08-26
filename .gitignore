@@ -1,0 +1,7 @@
+node_modules/
+.pnpm-store/
+dist/
+android/
+.idea/
+.DS_Store
+*.apk

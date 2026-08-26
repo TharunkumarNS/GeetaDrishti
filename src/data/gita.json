@@ -1,0 +1,350 @@
+{
+  "edition": {
+    "en": "Classical Sanskrit text · Bhagavad Gita",
+    "te": "సాంప్రదాయ సంస్కృత పాఠం · భగవద్గీత"
+  },
+  "chapters": [
+    {
+      "number": 1,
+      "title": { "en": "Arjuna's Despondency", "te": "అర్జున విషాద యోగము" },
+      "verses": [
+        {
+          "id": "1.1",
+          "number": "1.1",
+          "sanskrit": "धृतराष्ट्र उवाच । धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः । मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय ॥",
+          "english": "Dhritarashtra said: Gathered at Kurukshetra, the field of dharma, and eager for battle, what did my sons and the sons of Pandu do, Sanjaya?",
+          "telugu": "ధృతరాష్ట్రుడు పలికెను: ధర్మక్షేత్రమైన కురుక్షేత్రంలో యుద్ధం చేయాలనే కోరికతో కూడిన నా కుమారులు, పాండవులు ఏమి చేసిరి, సంజయా?",
+          "keywords": ["Kurukshetra", "dharma", "battle", "ధర్మం", "కురుక్షేత్రం"],
+          "commentaries": {
+            "shankara": { "en": "The opening invokes a field of dharma, preparing the ethical conflict that follows.", "te": "ధర్మక్షేత్ర ప్రస్తావనతో ముందున్న నైతిక సంఘర్షణకు పునాది వేయబడుతుంది." },
+            "ramanuja": { "en": "The question frames the battle within divine order and familial duty.", "te": "ఈ ప్రశ్న యుద్ధాన్ని దైవిక క్రమం, కుటుంబ ధర్మం మధ్య ఉంచుతుంది." },
+            "prabhupada": { "en": "Kurukshetra is presented as a real sacred place where duty must be faced.", "te": "కురుక్షేత్రం నిజమైన పవిత్ర స్థలంగా, కర్తవ్యాన్ని ఎదుర్కొనే వేదికగా చూపబడింది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": { "en": "The Yoga of Knowledge", "te": "సాంఖ్య యోగము" },
+      "verses": [
+        {
+          "id": "2.47",
+          "number": "2.47",
+          "sanskrit": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन । मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥",
+          "english": "You have a right to action alone, never to its fruits. Do not make results your motive, and do not become attached to inaction.",
+          "telugu": "నీకు కర్మ చేయుటయందే అధికారం ఉంది; ఫలములయందు ఎప్పుడూ లేదు. ఫలమే ఉద్దేశ్యంగా కర్మ చేయకు; అకర్మలోనూ ఆసక్తి చూపకు.",
+          "keywords": ["karma", "action", "results", "duty", "కర్మ", "ఫలం"],
+          "commentaries": {
+            "shankara": { "en": "Perform prescribed action without ownership of its result; this purifies the mind for knowledge.", "te": "ఫలాధిపత్య భావన లేకుండా విధి కర్మ చేయడం జ్ఞానానికి మనస్సును శుద్ధి చేస్తుంది." },
+            "ramanuja": { "en": "Action becomes worship when it is offered without self-centered expectation.", "te": "స్వార్థాపేక్ష లేకుండా అర్పించిన కర్మ ఆరాధన అవుతుంది." },
+            "prabhupada": { "en": "Work as duty for the Supreme, not for private gain or laziness.", "te": "వ్యక్తిగత లాభం కోసం కాదు, పరమాత్మకు విధిగా కర్మ చేయాలి." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": { "en": "The Yoga of Action", "te": "కర్మ యోగము" },
+      "verses": [
+        {
+          "id": "3.21",
+          "number": "3.21",
+          "sanskrit": "यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः । स यत्प्रमाणं कुरुते लोकस्तदनुवर्तते ॥",
+          "english": "Whatever a distinguished person does, others follow; whatever standard that person sets, the world pursues.",
+          "telugu": "శ్రేష్ఠుడు ఏది ఆచరిస్తాడో ఇతరులు అదే అనుసరిస్తారు; అతడు ఏ ప్రమాణాన్ని ఏర్పరుస్తాడో లోకం దానినే అనుసరిస్తుంది.",
+          "keywords": ["leadership", "example", "action", "నాయకత్వం", "ఆచరణ"],
+          "commentaries": {
+            "shankara": { "en": "Those who know should still act carefully, since their conduct guides society.", "te": "జ్ఞానులు కూడా జాగ్రత్తగా కర్మ చేయాలి; వారి ఆచరణ సమాజానికి మార్గదర్శకం." },
+            "ramanuja": { "en": "The noble person's conduct teaches service through visible example.", "te": "మహనీయుని ప్రవర్తన దృశ్యమైన ఉదాహరణ ద్వారా సేవను బోధిస్తుంది." },
+            "prabhupada": { "en": "Leadership is measured by conduct, not merely by instruction.", "te": "నాయకత్వం ఉపదేశంతో మాత్రమే కాదు, ఆచరణతో కొలవబడుతుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": { "en": "Wisdom in Action", "te": "జ్ఞాన కర్మ సన్యాస యోగము" },
+      "verses": [
+        {
+          "id": "4.7",
+          "number": "4.7",
+          "sanskrit": "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत । अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥",
+          "english": "Whenever dharma declines and adharma rises, O Bharata, then I manifest Myself.",
+          "telugu": "ధర్మానికి హాని కలిగి అధర్మం పెరిగినప్పుడల్లా, ఓ భారతా, నేను నన్ను నేను ప్రకటించుకొంటాను.",
+          "keywords": ["dharma", "avatar", "divine descent", "ధర్మం", "అవతారం"],
+          "commentaries": {
+            "shankara": { "en": "The Lord's manifestation restores the conditions in which right knowledge and conduct can flourish.", "te": "భగవంతుని అవతరణ సత్యజ్ఞానం, ధర్మాచరణ వికసించే పరిస్థితులను పునరుద్ధరిస్తుంది." },
+            "ramanuja": { "en": "Out of compassion, the Lord becomes accessible to protect devotees and dharma.", "te": "భక్తులను, ధర్మాన్ని రక్షించడానికి కరుణతో భగవంతుడు సులభంగా చేరువవుతాడు." },
+            "prabhupada": { "en": "The verse affirms the Lord's personal appearance for the protection of the faithful.", "te": "భక్తుల రక్షణ కోసం భగవంతుని వ్యక్తిగత అవతరణను ఈ శ్లోకం నిర్ధారిస్తుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": { "en": "The Yoga of Renunciation", "te": "కర్మ సన్యాస యోగము" },
+      "verses": [
+        {
+          "id": "5.10",
+          "number": "5.10",
+          "sanskrit": "ब्रह्मण्याधाय कर्माणि सङ्गं त्यक्त्वा करोति यः । लिप्यते न स पापेन पद्मपत्रमिवाम्भसा ॥",
+          "english": "One who performs actions, offering them to Brahman and abandoning attachment, is untouched by sin, like a lotus leaf by water.",
+          "telugu": "బ్రహ్మానికి కర్మలను అర్పించి, ఆసక్తిని విడిచి చేసే వాడు నీటిలో తామరాకు వలె పాపంతో అంటబడడు.",
+          "keywords": ["renunciation", "offering", "lotus", "సన్యాసం", "అర్పణ"],
+          "commentaries": {
+            "shankara": { "en": "Renunciation here is inner non-attachment, not abandonment of necessary work.", "te": "ఇక్కడ సన్యాసం అంటే అవసరమైన పనిని వదలడం కాదు; అంతరంగ అనాసక్తి." },
+            "ramanuja": { "en": "Offering every act to the Lord removes the binding sense of possessiveness.", "te": "ప్రతి కర్మను ప్రభువుకు అర్పించడం బంధించే మమకారాన్ని తొలగిస్తుంది." },
+            "prabhupada": { "en": "Devotional service lets one work in the world without being entangled by it.", "te": "భక్తి సేవ ద్వారా ప్రపంచంలో పనిచేసినా దానిలో చిక్కుకోకుండా ఉండవచ్చు." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": { "en": "The Yoga of Meditation", "te": "ధ్యాన యోగము" },
+      "verses": [
+        {
+          "id": "6.5",
+          "number": "6.5",
+          "sanskrit": "उद्धरेदात्मनाऽऽत्मानं नात्मानमवसादयेत् । आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥",
+          "english": "Let one lift oneself by oneself; let one not degrade oneself. The self alone is one's friend, and the self alone is one's enemy.",
+          "telugu": "తనచేత తానే తనను ఉద్ధరించుకోవాలి; తనను తాను దిగజార్చుకోకూడదు. తనకు తానే మిత్రుడు, తనకు తానే శత్రువు.",
+          "keywords": ["meditation", "self mastery", "mind", "ధ్యానం", "ఆత్మనిగ్రహం"],
+          "commentaries": {
+            "shankara": { "en": "The disciplined mind assists liberation; the undisciplined mind obstructs it.", "te": "శిక్షణ పొందిన మనస్సు విముక్తికి తోడ్పడుతుంది; అశిక్షిత మనస్సు అడ్డుకుంటుంది." },
+            "ramanuja": { "en": "Personal effort is required to turn the mind toward the divine.", "te": "మనస్సును దైవం వైపు తిప్పడానికి వ్యక్తిగత ప్రయత్నం అవసరం." },
+            "prabhupada": { "en": "The mind becomes a friend when engaged in purposeful spiritual practice.", "te": "లక్ష్యభరితమైన ఆధ్యాత్మిక సాధనలో మనస్సు నిమగ్నమైతే అది మిత్రం అవుతుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": { "en": "Knowledge and Realization", "te": "జ్ఞాన విజ్ఞాన యోగము" },
+      "verses": [
+        {
+          "id": "7.7",
+          "number": "7.7",
+          "sanskrit": "मत्तः परतरं नान्यत्किञ्चिदस्ति धनञ्जय । मयि सर्वमिदं प्रोतं सूत्रे मणिगणा इव ॥",
+          "english": "There is nothing whatsoever higher than Me, Dhananjaya. All this is strung on Me like pearls on a thread.",
+          "telugu": "నా కంటే మించినది ఏదీ లేదు, ధనంజయా. దారంలో మణులు గుచ్చినట్లు ఇదంతా నాయందు గుచ్చబడి ఉంది.",
+          "keywords": ["God", "supreme", "unity", "divine", "పరమాత్మ", "ఐక్యత"],
+          "commentaries": {
+            "shankara": { "en": "The One reality is the support upon which the diverse universe appears.", "te": "విభిన్న విశ్వం ప్రత్యక్షమయ్యే ఆధారం ఏక సత్యమే." },
+            "ramanuja": { "en": "The universe is inseparably dependent on the Supreme Person.", "te": "విశ్వం పరమ పురుషునిపై విడదీయరాని ఆధారంతో ఉంది." },
+            "prabhupada": { "en": "Everything rests upon Krishna while He remains the independent source.", "te": "అన్నీ కృష్ణునిపై ఆధారపడినా, ఆయన స్వతంత్ర మూలంగా ఉంటారు." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": { "en": "The Imperishable Absolute", "te": "అక్షర బ్రహ్మ యోగము" },
+      "verses": [
+        {
+          "id": "8.5",
+          "number": "8.5",
+          "sanskrit": "अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम् । यः प्रयाति स मद्भावं याति नास्त्यत्र संशयः ॥",
+          "english": "Whoever leaves the body at the end remembering Me alone attains My being; of this there is no doubt.",
+          "telugu": "అంత్యకాలంలో నన్నే స్మరిస్తూ దేహాన్ని విడిచినవాడు నా స్వరూపాన్నే పొందుతాడు; ఇందులో సందేహం లేదు.",
+          "keywords": ["remembrance", "death", "imperishable", "స్మరణ", "మరణం"],
+          "commentaries": {
+            "shankara": { "en": "The final remembrance follows the direction repeatedly cultivated throughout life.", "te": "అంత్య స్మరణ అనేది జీవితమంతా పెంపొందించుకున్న దిశను అనుసరిస్తుంది." },
+            "ramanuja": { "en": "Loving remembrance of the Lord is the culmination of disciplined devotion.", "te": "ప్రభువును ప్రేమతో స్మరించడం నియమిత భక్తి యొక్క పరాకాష్ఠ." },
+            "prabhupada": { "en": "A life of remembrance makes the final moment spiritually meaningful.", "te": "స్మరణతో గడిపిన జీవితం అంతిమ క్షణాన్ని ఆధ్యాత్మికంగా అర్థవంతం చేస్తుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": { "en": "The Royal Knowledge", "te": "రాజవిద్య రాజగుహ్య యోగము" },
+      "verses": [
+        {
+          "id": "9.22",
+          "number": "9.22",
+          "sanskrit": "अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते । तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम् ॥",
+          "english": "For those who worship Me with single-minded devotion, meditating on Me always, I carry what they lack and preserve what they have.",
+          "telugu": "నన్నే అనన్యభావంతో ధ్యానిస్తూ ఆరాధించే వారికి, నేను లేనిదాన్ని సమకూర్చి ఉన్నదాన్ని కాపాడుతాను.",
+          "keywords": ["devotion", "protection", "yoga kshema", "భక్తి", "రక్షణ"],
+          "commentaries": {
+            "shankara": { "en": "Single-minded contemplation loosens dependence on transient supports.", "te": "ఏకాగ్ర ధ్యానం క్షణికమైన ఆధారాలపై ఆధారపడటాన్ని తగ్గిస్తుంది." },
+            "ramanuja": { "en": "The Lord personally cares for those wholly devoted to Him.", "te": "తనకు సంపూర్ణంగా అంకితమైన వారిని ప్రభువు స్వయంగా సంరక్షిస్తాడు." },
+            "prabhupada": { "en": "The promise is one of divine maintenance for sincere devotees.", "te": "నిష్కపట భక్తులకు దైవిక పోషణ లభిస్తుందనే వాగ్దానం ఇది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": { "en": "Divine Manifestations", "te": "విభూతి యోగము" },
+      "verses": [
+        {
+          "id": "10.41",
+          "number": "10.41",
+          "sanskrit": "यद्यद्विभूतिमत्सत्त्वं श्रीमदूर्जितमेव वा । तत्तदेवावगच्छ त्वं मम तेजोंऽशसम्भवम् ॥",
+          "english": "Whatever being is glorious, prosperous, or powerful, know it to arise from a fragment of My splendor.",
+          "telugu": "ఏది మహిమగలదో, శోభాయమానమో, శక్తివంతమో అది నా తేజస్సులోని ఒక అంశం నుండే ఉద్భవించిందని తెలుసుకో.",
+          "keywords": ["glory", "splendor", "vibhuti", "మహిమ", "విభూతి"],
+          "commentaries": {
+            "shankara": { "en": "Exceptional excellence can become a reminder of its ultimate ground.", "te": "అసాధారణమైన శ్రేష్ఠత దాని పరమ మూలాన్ని గుర్తు చేస్తుంది." },
+            "ramanuja": { "en": "All excellence reflects a limited expression of the Lord's limitless qualities.", "te": "ప్రతి శ్రేష్ఠత ప్రభువు అనంత గుణాల పరిమిత వ్యక్తీకరణే." },
+            "prabhupada": { "en": "Natural beauty and power point toward the source of all opulence.", "te": "ప్రకృతి సౌందర్యం, శక్తి సర్వ ఐశ్వర్యానికి మూలమైన వానిని సూచిస్తాయి." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": { "en": "The Universal Form", "te": "విశ్వరూప దర్శన యోగము" },
+      "verses": [
+        {
+          "id": "11.32",
+          "number": "11.32",
+          "sanskrit": "कालोऽस्मि लोकक्षयकृत्प्रवृद्धो लोकान्समाहर्तुमिह प्रवृत्तः । ऋतेऽपि त्वां न भविष्यन्ति सर्वे येऽवस्थिताः प्रत्यनीकेषु योधाः ॥",
+          "english": "I am Time, grown mature, the destroyer of worlds, engaged here in withdrawing these people. Even without you, the warriors arrayed in opposing ranks will not remain.",
+          "telugu": "నేనే కాలాన్ని, లోకాలను సంహరించేవాడిని; ఇక్కడ వీరిని అంతం చేయడానికి ప్రవృత్తుడను. నీవు లేకపోయినా ఎదురుపక్షంలో నిలిచిన యోధులు మిగలరు.",
+          "keywords": ["time", "universal form", "mortality", "కాలం", "విశ్వరూపం"],
+          "commentaries": {
+            "shankara": { "en": "The cosmic vision discloses time as the power before which individual agency is limited.", "te": "విశ్వరూప దర్శనం వ్యక్తి కర్తృత్వం పరిమితమైనదని, కాలం యొక్క శక్తిని చూపిస్తుంది." },
+            "ramanuja": { "en": "Arjuna is asked to serve the divine purpose already at work in the world.", "te": "లోకంలో ఇప్పటికే పనిచేస్తున్న దైవ సంకల్పానికి సేవ చేయమని అర్జునుడిని కోరుతున్నారు." },
+            "prabhupada": { "en": "The vision calls for courageous service rather than passive fatalism.", "te": "ఈ దర్శనం నిష్క్రియాత్మక విధివాదం కాదు; ధైర్యమైన సేవను పిలుస్తుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": { "en": "The Yoga of Devotion", "te": "భక్తి యోగము" },
+      "verses": [
+        {
+          "id": "12.15",
+          "number": "12.15",
+          "sanskrit": "यस्मान्नोद्विजते लोको लोकान्नोद्विजते च यः । हर्षामर्षभयोद्वेगैर्मुक्तो यः स च मे प्रियः ॥",
+          "english": "One from whom the world does not shrink, and who does not shrink from the world, free from joy, envy, fear, and agitation, is dear to Me.",
+          "telugu": "ఎవని వలన లోకం కలత చెందదో, ఎవరు లోకం వలన కలత చెందరో, హర్షం, అసూయ, భయం, ఉద్వేగాల నుండి విముక్తుడో అతడు నాకు ప్రియుడు.",
+          "keywords": ["devotion", "equanimity", "compassion", "భక్తి", "సమత్వం"],
+          "commentaries": {
+            "shankara": { "en": "Freedom from emotional disturbance allows non-harming conduct toward all.", "te": "భావోద్వేగ కలత నుంచి విముక్తి అందరి పట్ల అహింసాత్మక ప్రవర్తనను సాధ్యం చేస్తుంది." },
+            "ramanuja": { "en": "The beloved devotee is gentle, secure, and never a cause of fear to others.", "te": "ప్రియ భక్తుడు సౌమ్యుడు, స్థిరుడు, ఇతరులకు భయకారణం కానివాడు." },
+            "prabhupada": { "en": "Devotion is reflected in peaceful dealings and freedom from envy.", "te": "శాంతియుత ప్రవర్తన, అసూయలేమి భక్తికి ప్రతిబింబం." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": { "en": "The Field and the Knower", "te": "క్షేత్ర క్షేత్రజ్ఞ విభాగ యోగము" },
+      "verses": [
+        {
+          "id": "13.8",
+          "number": "13.8",
+          "sanskrit": "अमानित्वमदम्भित्वमहिंसा क्षान्तिरार्जवम् । आचार्योपासनं शौचं स्थैर्यमात्मविनिग्रहः ॥",
+          "english": "Humility, freedom from pretense, nonviolence, patience, straightforwardness, service to the teacher, purity, steadiness, and self-control—",
+          "telugu": "వినయం, దంభరాహిత్యం, అహింస, క్షమ, నిజాయితీ, ఆచార్య సేవ, శౌచం, స్థిరత్వం, ఆత్మనిగ్రహం—ఇవే జ్ఞానానికి ఆరంభ గుణాలు.",
+          "keywords": ["knowledge", "humility", "nonviolence", "జ్ఞానం", "వినయం", "అహింస"],
+          "commentaries": {
+            "shankara": { "en": "These dispositions are called knowledge because they prepare one to recognize the truth.", "te": "సత్యాన్ని గ్రహించడానికి సిద్ధం చేస్తాయి కాబట్టి ఈ గుణాలను జ్ఞానం అంటారు." },
+            "ramanuja": { "en": "Spiritual understanding is inseparable from the virtues that make a learner receptive.", "te": "శిష్యుడిని గ్రహణశీలునిగా చేసే సద్గుణాల నుంచి ఆధ్యాత్మిక అవగాహన విడదీయలేనిది." },
+            "prabhupada": { "en": "Real education begins with character and willingness to learn from a genuine guide.", "te": "నిజమైన విద్య సద్గుణం, సద్గురువుని నుండి నేర్చుకునే సిద్ధతతో మొదలవుతుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": { "en": "The Three Modes of Nature", "te": "గుణత్రయ విభాగ యోగము" },
+      "verses": [
+        {
+          "id": "14.26",
+          "number": "14.26",
+          "sanskrit": "मां च योऽव्यभिचारेण भक्तियोगेन सेवते । स गुणान्समतीत्यैतान्ब्रह्मभूयाय कल्पते ॥",
+          "english": "One who serves Me with unwavering devotion transcends these modes and becomes fit for realization of Brahman.",
+          "telugu": "ఎవడు అవ్యభిచారమైన భక్తియోగంతో నన్ను సేవిస్తాడో అతడు ఈ గుణాలను అతిక్రమించి బ్రహ్మభావానికి యోగ్యుడవుతాడు.",
+          "keywords": ["gunas", "devotion", "nature", "గుణాలు", "భక్తి"],
+          "commentaries": {
+            "shankara": { "en": "Steady devotion supports the crossing beyond the conditioning of the three qualities.", "te": "స్థిరమైన భక్తి మూడు గుణాల బంధనాన్ని దాటడానికి తోడ్పడుతుంది." },
+            "ramanuja": { "en": "Loving service to the Lord releases the soul from material qualities.", "te": "ప్రభువుకు ప్రేమతో సేవ చేయడం జీవుణ్ణి ప్రకృతి గుణాల నుంచి విడుదల చేస్తుంది." },
+            "prabhupada": { "en": "Unalloyed devotional service is presented as the direct path beyond the modes.", "te": "నిష్కల్మష భక్తి సేవ గుణత్రయానికి అతీతమైన ప్రత్యక్ష మార్గంగా చెప్పబడింది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": { "en": "The Supreme Person", "te": "పురుషోత్తమ యోగము" },
+      "verses": [
+        {
+          "id": "15.7",
+          "number": "15.7",
+          "sanskrit": "ममैवांशो जीवलोके जीवभूतः सनातनः । मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति ॥",
+          "english": "An eternal portion of Myself becomes the individual soul in the world of life and draws the mind and six senses that abide in nature.",
+          "telugu": "జీవలోకంలోని జీవుడు నా నిత్యాంశమే; ప్రకృతిలో ఉన్న మనస్సు మరియు ఆరు ఇంద్రియాలను తనవైపు ఆకర్షించుకుంటాడు.",
+          "keywords": ["soul", "self", "senses", "జీవాత్మ", "ఇంద్రియాలు"],
+          "commentaries": {
+            "shankara": { "en": "The embodied self is described in relation to the limiting instruments of mind and senses.", "te": "దేహధారి జీవుడు మనస్సు, ఇంద్రియాల వంటి పరిమిత సాధనాల సంబంధంలో వర్ణించబడ్డాడు." },
+            "ramanuja": { "en": "The individual soul belongs to the Lord while retaining its own enduring identity.", "te": "జీవాత్మ ప్రభువుకు చెందినదే అయినా తన నిత్య ప్రత్యేకతను నిలుపుకుంటుంది." },
+            "prabhupada": { "en": "The living being is spiritual by nature but struggles when absorbed in material senses.", "te": "జీవుడు స్వభావतः ఆధ్యాత్మికుడు; భౌతిక ఇంద్రియాలలో మునిగితే పోరాటం ఏర్పడుతుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "title": { "en": "Divine and Demonic Qualities", "te": "దైవాసుర సంపద్విభాగ యోగము" },
+      "verses": [
+        {
+          "id": "16.21",
+          "number": "16.21",
+          "sanskrit": "त्रिविधं नरकस्येदं द्वारं नाशनमात्मनः । कामः क्रोधस्तथा लोभस्तस्मादेतत्त्रयं त्यजेत् ॥",
+          "english": "This threefold gate to ruin of the self—desire, anger, and greed—should therefore be abandoned.",
+          "telugu": "కామం, క్రోధం, లోభం అనే మూడు ఆత్మనాశనానికి నరకద్వారాలు; కాబట్టి ఈ మూడింటిని విడిచిపెట్టాలి.",
+          "keywords": ["desire", "anger", "greed", "ethics", "కామం", "క్రోధం", "లోభం"],
+          "commentaries": {
+            "shankara": { "en": "These drives obscure discernment and generate actions that bind the mind.", "te": "ఈ ప్రేరణలు వివేకాన్ని కమ్మి, మనస్సును బంధించే కర్మలను కలిగిస్తాయి." },
+            "ramanuja": { "en": "They are obstacles to a life ordered toward the Lord and the good of others.", "te": "ప్రభువు వైపు, ఇతరుల మేలు వైపు సాగే జీవితానికి ఇవి అడ్డంకులు." },
+            "prabhupada": { "en": "Spiritual progress requires practical restraint of lust, anger, and greed.", "te": "ఆధ్యాత్మిక పురోగతికి కామం, క్రోధం, లోభాన్ని ఆచరణాత్మకంగా నియంత్రించడం అవసరం." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "title": { "en": "The Threefold Faith", "te": "శ్రద్ధాత్రయ విభాగ యోగము" },
+      "verses": [
+        {
+          "id": "17.3",
+          "number": "17.3",
+          "sanskrit": "सत्त्वानुरूपा सर्वस्य श्रद्धा भवति भारत । श्रद्धामयोऽयं पुरुषो यो यच्छ्रद्धः स एव सः ॥",
+          "english": "The faith of each is shaped by one's nature, Bharata. A person is made of faith; whatever one's faith, that one truly is.",
+          "telugu": "ప్రతి ఒక్కరి శ్రద్ధ వారి స్వభావానికి అనుగుణంగా ఉంటుంది, భారతా. మనిషి శ్రద్ధమయుడు; ఎటువంటి శ్రద్ధ కలవాడో అతడు అలాంటివాడే.",
+          "keywords": ["faith", "nature", "character", "శ్రద్ధ", "స్వభావం"],
+          "commentaries": {
+            "shankara": { "en": "Faith follows inner disposition and directs the choices through which character is formed.", "te": "శ్రద్ధ అంతరంగ స్వభావాన్ని అనుసరించి, వ్యక్తిత్వాన్ని మలిచే ఎంపికలను నడిపిస్తుంది." },
+            "ramanuja": { "en": "Faith should be cultivated and raised through proper teaching and practice.", "te": "సరైన బోధన, సాధన ద్వారా శ్రద్ధను పెంపొందించి ఉన్నతం చేయాలి." },
+            "prabhupada": { "en": "One's faith is visible in the object and quality of one's daily worship.", "te": "రోజువారీ ఆరాధన యొక్క లక్ష్యం, నాణ్యతలో వ్యక్తి శ్రద్ధ కనిపిస్తుంది." }
+          }
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": { "en": "Liberation through Renunciation", "te": "మోక్ష సన్యాస యోగము" },
+      "verses": [
+        {
+          "id": "18.66",
+          "number": "18.66",
+          "sanskrit": "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज । अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः ॥",
+          "english": "Abandon all limited duties and take refuge in Me alone. I will free you from all wrong; do not grieve.",
+          "telugu": "అన్ని పరిమిత ధర్మాలను విడిచి నన్నే శరణు పొందు. నేను నిన్ను సమస్త పాపాల నుండి విముక్తుణ్ణి చేస్తాను; దుఃఖించకు.",
+          "keywords": ["surrender", "liberation", "refuge", "శరణాగతి", "మోక్షం"],
+          "commentaries": {
+            "shankara": { "en": "Final refuge in the highest truth transcends limited notions of obligation and agency.", "te": "పరమ సత్యంలో అంతిమ శరణు పరిమిత కర్తవ్య, కర్తృత్వ భావనలను అధిగమిస్తుంది." },
+            "ramanuja": { "en": "The verse teaches complete surrender, trusting the Lord's saving grace.", "te": "ప్రభువు రక్షక కృపను నమ్మి సంపూర్ణ శరణాగతి చేయమని ఈ శ్లోకం బోధిస్తుంది." },
+            "prabhupada": { "en": "The conclusion calls for wholehearted shelter in Krishna, without fear.", "te": "భయం లేకుండా కృష్ణునిలో సంపూర్ణ ఆశ్రయం పొందమని ఈ ముగింపు పిలుస్తుంది." }
+          }
+        }
+      ]
+    }
+  ]
+}
