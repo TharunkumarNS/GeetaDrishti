@@ -10,8 +10,8 @@ import { useLocalStorage } from './hooks/useLocalStorage'
 
 export default function App() {
   const [language, setLanguage] = useLocalStorage('geeta-drishti:language', 'en')
-  const [selectedChapter, setSelectedChapter] = useState(2)
-  const [selectedVerseId, setSelectedVerseId] = useState('2.47')
+  const [selectedChapter, setSelectedChapter] = useState(1)
+  const [selectedVerseId, setSelectedVerseId] = useState('1.1')
   const [query, setQuery] = useState('')
   const [bookmarks, setBookmarks] = useLocalStorage('geeta-drishti:bookmarks', [])
   const [notes, setNotes] = useLocalStorage('geeta-drishti:notes', [])
@@ -67,6 +67,20 @@ export default function App() {
   const ui = safeLanguage === 'te'
     ? { discover: 'గీతా పఠనం', title: 'శ్లోకం చదవండి, ఆలోచించండి, మీది చేసుకోండి.', sub: 'అన్ని పఠనాలు, గమనికలు, బుక్‌మార్క్‌లు ఈ పరికరంలోనే ఉంటాయి.', result: 'శోధన ఫలితాలు', noResult: 'సరిపోలే శ్లోకాలు లేవు.', current: 'ప్రస్తుత అధ్యాయం' }
     : { discover: 'Read the Gita', title: 'Read a verse, reflect, and make it yours.', sub: 'Every reading, note, and bookmark stays on this device.', result: 'Search results', noResult: 'No matching verses found.', current: 'Current chapter' }
+
+  // --- NEW NAVIGATION LOGIC ---
+  const currentVerseIndex = chapter?.verses.findIndex((v) => v.id === selectedVerseId) ?? 0
+  const hasPreviousVerse = currentVerseIndex > 0
+  const hasNextVerse = chapter ? currentVerseIndex < chapter.verses.length - 1 : false
+
+  const goToPreviousVerse = () => {
+    if (hasPreviousVerse) setSelectedVerseId(chapter.verses[currentVerseIndex - 1].id)
+  }
+
+  const goToNextVerse = () => {
+    if (hasNextVerse) setSelectedVerseId(chapter.verses[currentVerseIndex + 1].id)
+  }
+  // ----------------------------
 
   return (
     <div className="min-h-screen bg-[#fffaf2] text-stone-800">
@@ -135,6 +149,34 @@ export default function App() {
               onToggleBookmark={toggleBookmark}
               onOpenNotes={() => setIsNotesOpen(true)}
             />
+
+            {/* --- NEW NAVIGATION BUTTONS --- */}
+            <div className="mt-6 flex items-center justify-between gap-4">
+              <button
+                onClick={goToPreviousVerse}
+                disabled={!hasPreviousVerse}
+                className={`flex-1 rounded-xl py-3 text-sm font-bold transition ${
+                  hasPreviousVerse 
+                    ? 'bg-amber-100 text-amber-900 hover:bg-amber-200 active:scale-95' 
+                    : 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
+                }`}
+              >
+                {safeLanguage === 'te' ? '← ముందు శ్లోకం' : '← Previous Verse'}
+              </button>
+              
+              <button
+                onClick={goToNextVerse}
+                disabled={!hasNextVerse}
+                className={`flex-1 rounded-xl py-3 text-sm font-bold transition ${
+                  hasNextVerse 
+                    ? 'bg-amber-100 text-amber-900 hover:bg-amber-200 active:scale-95' 
+                    : 'bg-stone-100 text-stone-400 cursor-not-allowed opacity-60'
+                }`}
+              >
+                {safeLanguage === 'te' ? 'తరువాతి శ్లోకం →' : 'Next Verse →'}
+              </button>
+            </div>
+            {/* ------------------------------ */}
           </>
         )}
       </main>
