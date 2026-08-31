@@ -5,3 +5,6 @@ android/
 .idea/
 .DS_Store
 *.apk
+pgvector/
+venv/
+__pycache__/

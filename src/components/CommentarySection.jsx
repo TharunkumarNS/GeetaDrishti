@@ -11,6 +11,15 @@ export default function CommentarySection({ commentaries, language }) {
   const [activeTradition, setActiveTradition] = useState('shankara')
   const active = traditions.find((tradition) => tradition.id === activeTradition)
 
+  const safeCommentaries = Array.isArray(commentaries) ? commentaries : []
+
+  // Find the commentary matching the selected tradition and current language
+  const matchedCommentary = safeCommentaries.find(
+    (c) => c.author_name?.toLowerCase() === activeTradition && c.language === language
+  ) || safeCommentaries.find(
+    (c) => c.author_name?.toLowerCase() === activeTradition
+  )
+
   return (
     <section className="border-t border-amber-100 pt-4" aria-label={language === 'te' ? 'వ్యాఖ్యానాలు' : 'Commentaries'}>
       <div className="mb-3 flex items-center gap-2 text-sm font-bold text-saffron-900">
@@ -33,7 +42,11 @@ export default function CommentarySection({ commentaries, language }) {
       </div>
       <div className="mt-3 rounded-xl border border-amber-100 bg-amber-50/60 p-3.5">
         <p className="text-xs font-bold text-amber-800">{active[language]}</p>
-        <p className="mt-1.5 text-sm leading-6 text-stone-700">{commentaries[activeTradition][language]}</p>
+        <p className="mt-1.5 text-sm leading-6 text-stone-700 whitespace-pre-line">
+          {matchedCommentary 
+            ? matchedCommentary.text 
+            : (language === 'te' ? 'ఈ భాషలో వ్యాఖ్యానం అందుబాటులో లేదు.' : 'Commentary not available in this language.')}
+        </p>
       </div>
     </section>
   )

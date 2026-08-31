@@ -2,18 +2,16 @@ import { Bookmark, Heart, NotebookPen, Quote } from 'lucide-react'
 import CommentarySection from './CommentarySection'
 
 export default function VerseCard({ verse, edition, language, isBookmarked, onToggleBookmark, onOpenNotes }) {
-  const chapterName = verse.chapterTitle[language]
-  const label = language === 'te' ? `అధ్యాయం ${verse.chapterNumber}` : `Chapter ${verse.chapterNumber}`
+  // Fallback label if chapterTitle isn't attached to the live verse response
+  const label = language === 'te' ? `అధ్యాయం ${verse.chapter}` : `Chapter ${verse.chapter}`
+  const verseLabel = language === 'te' ? `శ్లోకం ${verse.verse_number}` : `Verse ${verse.verse_number}`
 
   return (
     <article className="overflow-hidden rounded-3xl border border-amber-100 bg-white shadow-soft">
       <div className="flex items-start justify-between gap-4 bg-gradient-to-r from-amber-50 to-orange-50 px-5 py-4">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700">{label}</p>
-          <h1 className="mt-1 font-serif text-xl font-bold text-saffron-900">{chapterName}</h1>
-          <p className="mt-1 text-sm font-semibold text-stone-600">
-            {language === 'te' ? 'శ్లోకం' : 'Verse'} {verse.number}
-          </p>
+          <h1 className="mt-1 font-serif text-xl font-bold text-saffron-900">{verseLabel}</h1>
         </div>
         <button
           type="button"
@@ -31,20 +29,25 @@ export default function VerseCard({ verse, edition, language, isBookmarked, onTo
           <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.13em] text-amber-700">
             <Quote size={15} /> Sanskrit / संस्कृतम्
           </div>
-          <p className="font-serif text-xl leading-9 text-stone-800">{verse.sanskrit}</p>
+          <p className="font-serif text-xl leading-9 text-stone-800 whitespace-pre-line">{verse.sanskrit}</p>
         </section>
 
+        {/* --- DYNAMIC TRANSLITERATION ENGINE OUTPUT --- */}
         <section className="rounded-2xl bg-stone-50 p-4">
           <p className="text-xs font-bold uppercase tracking-[0.13em] text-stone-500">
-            {language === 'te' ? 'అర్థం' : 'Translation'}
+            {language === 'te' ? 'లిప్యంతరీకరణ (Transliteration)' : 'Transliteration'}
           </p>
-          <p className="mt-2 text-[15px] leading-7 text-stone-700">{verse[language === 'te' ? 'telugu' : 'english']}</p>
+          <p className="mt-2 text-[15px] leading-7 text-stone-700 whitespace-pre-line">
+            {verse.transliteration}
+          </p>
         </section>
+        {/* ------------------------------------------- */}
 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold text-amber-800">
             <Bookmark size={13} /> {edition[language]}
           </span>
+
           <button
             type="button"
             onClick={onOpenNotes}

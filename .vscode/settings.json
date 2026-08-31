@@ -1,3 +1,16 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:system"
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "geeta_db",
+            "name": "GeetaDB",
+            "username": "postgres",
+            "password": "postgres"
+        }
+    ]
 }
