@@ -1,11 +1,11 @@
-from fastapi import FastAPI, Depends, HTTPException, Query
-from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
 from typing import Optional
-from sentence_transformers import SentenceTransformer
 
-import models, schemas
 from database import get_db
+from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
+import models
+import schemas
+from sqlalchemy.orm import Session
 from transliterate import convert_sanskrit
 
 app = FastAPI(title="GeetaDrishti API")
@@ -13,16 +13,25 @@ app = FastAPI(title="GeetaDrishti API")
 # --- CORS CONFIGURATION ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins for development
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 # --------------------------
 
-# Load the multilingual embedding model globally so it stays loaded in memory
-print("Loading semantic search embedding model...")
-model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+# --- LAZY LOADED EMBEDDING MODEL ---
+model = None
+
+def get_embedding_model():
+    global model
+    if model is None:
+        print("Lazy-loading sentence_transformers and embedding model (first search only)...")
+        # Heavy import happens ONLY inside this function on demand
+        from sentence_transformers import SentenceTransformer
+        model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+    return model
+# --------------------------
 
 @app.get("/")
 def root():
@@ -43,7 +52,7 @@ def get_verse(
 
     return response_data
 
-# --- NEW SEMANTIC SEARCH ENDPOINT ---
+# --- SEMANTIC SEARCH ENDPOINT ---
 @app.get("/search")
 def semantic_search(
     q: str = Query(..., description="Search query text"),
@@ -54,17 +63,20 @@ def semantic_search(
     if not q.strip():
         return []
 
-    # 1. Convert text query into a vector embedding
-    query_vector = model.encode(q).tolist()
+    # 1. Lazy load model and library on demand
+    embed_model = get_embedding_model()
 
-    # 2. Query PostgreSQL using pgvector cosine distance operator (<=>)
+    # 2. Convert text query into a vector embedding
+    query_vector = embed_model.encode(q).tolist()
+
+    # 3. Query PostgreSQL using pgvector cosine distance operator (<=>)
     results = db.query(models.Commentary)\
         .filter(models.Commentary.language == language)\
         .order_by(models.Commentary.embedding.cosine_distance(query_vector))\
         .limit(limit)\
         .all()
 
-    # 3. Format response matching your schema structure
+    # 4. Format response matching your schema structure
     response = []
     for com in results:
         response.append({
