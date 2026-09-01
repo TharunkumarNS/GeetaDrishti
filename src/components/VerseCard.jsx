@@ -2,9 +2,18 @@ import { Bookmark, Heart, NotebookPen, Quote } from 'lucide-react'
 import CommentarySection from './CommentarySection'
 
 export default function VerseCard({ verse, edition, language, isBookmarked, onToggleBookmark, onOpenNotes }) {
-  // Fallback label if chapterTitle isn't attached to the live verse response
-  const label = language === 'te' ? `అధ్యాయం ${verse.chapter}` : `Chapter ${verse.chapter}`
-  const verseLabel = language === 'te' ? `శ్లోకం ${verse.verse_number}` : `Verse ${verse.verse_number}`
+  if (!verse) return null;
+
+  // --- ONLINE / OFFLINE NORMALIZATION ---
+  const rawNumber = String(verse.number || verse.verse_number || verse.id || "");
+  const splitNumber = rawNumber.includes('.') ? rawNumber.split('.') : [];
+  
+  const chapterNum = verse.chapter || splitNumber[0] || '';
+  const verseNum = verse.verse_number || splitNumber[1] || rawNumber;
+
+  const label = language === 'te' ? `అధ్యాయం ${chapterNum}` : `Chapter ${chapterNum}`;
+  const verseLabel = language === 'te' ? `శ్లోకం ${verseNum}` : `Verse ${verseNum}`;
+  const editionName = edition?.[language] || (language === 'te' ? 'భగవద్గీత' : 'Bhagavad Gita');
 
   return (
     <article className="overflow-hidden rounded-3xl border border-amber-100 bg-white shadow-soft">
@@ -32,20 +41,20 @@ export default function VerseCard({ verse, edition, language, isBookmarked, onTo
           <p className="font-serif text-xl leading-9 text-stone-800 whitespace-pre-line">{verse.sanskrit}</p>
         </section>
 
-        {/* --- DYNAMIC TRANSLITERATION ENGINE OUTPUT --- */}
-        <section className="rounded-2xl bg-stone-50 p-4">
-          <p className="text-xs font-bold uppercase tracking-[0.13em] text-stone-500">
-            {language === 'te' ? 'లిప్యంతరీకరణ (Transliteration)' : 'Transliteration'}
-          </p>
-          <p className="mt-2 text-[15px] leading-7 text-stone-700 whitespace-pre-line">
-            {verse.transliteration}
-          </p>
-        </section>
-        {/* ------------------------------------------- */}
+        {verse.transliteration && (
+          <section className="rounded-2xl bg-stone-50 p-4">
+            <p className="text-xs font-bold uppercase tracking-[0.13em] text-stone-500">
+              {language === 'te' ? 'లిప్యంతరీకరణ (Transliteration)' : 'Transliteration'}
+            </p>
+            <p className="mt-2 text-[15px] leading-7 text-stone-700 whitespace-pre-line">
+              {verse.transliteration}
+            </p>
+          </section>
+        )}
 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-[11px] font-bold text-amber-800">
-            <Bookmark size={13} /> {edition[language]}
+            <Bookmark size={13} /> {editionName}
           </span>
 
           <button

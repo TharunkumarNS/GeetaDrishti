@@ -5,7 +5,7 @@ import Navbar from './components/Navbar'
 import NavigationDrawer from './components/NavigationDrawer'
 import NotesDrawer from './components/NotesDrawer'
 import VerseCard from './components/VerseCard'
-import SearchPage from './components/SearchPage' // <-- Import your new search page
+import SearchPage from './components/SearchPage'
 import { chapters, edition, searchVerses } from './data/gitaData'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
@@ -20,6 +20,11 @@ export default function App() {
   const [isNotesOpen, setIsNotesOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // --- Network & Offline State ---
+  const [isOnline, setIsOnline] = useState(navigator.onLine)
+  const [offlineBannerDismissed, setOfflineBannerDismissed] = useState(false)
+  const [isUsingLocalFallback, setIsUsingLocalFallback] = useState(false)
+
   // --- Live Backend State ---
   const [activeVerse, setActiveVerse] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -29,25 +34,82 @@ export default function App() {
   const safeNotes = Array.isArray(notes) ? notes : []
   const results = useMemo(() => searchVerses(query), [query])
 
-  // --- Fetch live verse data from FastAPI backend ---
+  // Track online/offline status dynamically without lag
+  useEffect(() => {
+    const handleOnline = () => {
+      setIsOnline(true)
+      setOfflineBannerDismissed(false)
+    }
+    const handleOffline = () => {
+      setIsOnline(false)
+    }
+
+    window.addEventListener('online', handleOnline)
+    window.addEventListener('offline', handleOffline)
+    return () => {
+      window.removeEventListener('online', handleOnline)
+      window.removeEventListener('offline', handleOffline)
+    }
+  }, [])
+
+  // --- Fetch verse data with instant offline/failover support ---
   useEffect(() => {
     async function fetchVerse() {
       if (view !== 'reader') return
       setLoading(true)
+
+      // 1. If explicitly offline, skip network request entirely and load local
+      if (!isOnline) {
+        loadVerseLocally()
+        return
+      }
+
+      // 2. Try fetching from FastAPI backend with a tight 1.2s timeout fallback
       try {
-        const response = await fetch(`http://localhost:8000/verses/${selectedVerseId}?lang=${safeLanguage}`)
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 1200)
+
+        const response = await fetch(`http://localhost:8000/verses/${selectedVerseId}?lang=${safeLanguage}`, {
+          signal: controller.signal
+        })
+        clearTimeout(timeoutId)
+
         if (response.ok) {
           const data = await response.json()
           setActiveVerse(data)
+          setIsUsingLocalFallback(false)
+        } else {
+          throw new Error("Backend response error")
         }
       } catch (error) {
-        console.error("Failed to fetch verse from backend:", error)
+        console.warn("Backend unreachable or offline. Falling back to local dataset...", error)
+        setIsUsingLocalFallback(true)
+        loadVerseLocally()
       } finally {
         setLoading(false)
       }
     }
+
+    function loadVerseLocally() {
+      const chapterNum = parseInt(selectedVerseId.split('.')[0])
+      const foundChapter = chapters.find((c) => c.number === chapterNum)
+      const foundVerse = foundChapter?.verses.find((v) => v.id === selectedVerseId)
+
+      if (foundVerse) {
+        setActiveVerse({
+          id: foundVerse.id,
+          chapterNumber: chapterNum,
+          number: foundVerse.number,
+          sanskrit: foundVerse.sanskrit,
+          keywords: foundVerse.keywords || [],
+          commentaries: foundVerse.commentaries || {}
+        })
+      }
+      setLoading(false)
+    }
+
     fetchVerse()
-  }, [selectedVerseId, safeLanguage, view])
+  }, [selectedVerseId, safeLanguage, view, isOnline])
 
   useEffect(() => {
     document.documentElement.lang = safeLanguage === 'te' ? 'te' : 'en'
@@ -65,7 +127,7 @@ export default function App() {
     setSelectedChapter(chapterNum)
     setSelectedVerseId(verseId)
     setQuery('')
-    setView('reader') // Switch to reader when a verse is clicked
+    setView('reader')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
@@ -107,8 +169,23 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#fffaf2] text-stone-800 flex flex-col">
+      {/* Offline Status Warning Banner */}
+      {(!isOnline || isUsingLocalFallback) && !offlineBannerDismissed && (
+        <div className="bg-amber-800 text-amber-50 px-4 py-2 text-xs text-center flex items-center justify-between shadow-inner z-50">
+          <span className="mx-auto">
+            ⚠️ {isOnline ? "Server unreachable." : "You are offline."} Reading from local cache. Semantic search & transliteration are using keyword fallback.
+          </span>
+          <button 
+            onClick={() => setOfflineBannerDismissed(true)} 
+            className="underline font-bold opacity-80 hover:opacity-100 ml-2"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+
       {/* Global Application Navbar with View Switcher */}
-      <header className="border-b border-amber-100 bg-white/80 backdrop-blur-md sticky top-0 z-50 px-4 py-3">
+      <header className="border-b border-amber-100 bg-white/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button 
             onClick={() => setView('home')} 
@@ -136,7 +213,7 @@ export default function App() {
             </button>
             <button
               onClick={() => setView('search')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 {
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
                 view === 'search' ? 'bg-amber-100 text-amber-900' : 'text-stone-600 hover:bg-stone-100'
               }`}
             >
@@ -217,7 +294,7 @@ export default function App() {
         )}
 
         {view === 'search' && (
-          <SearchPage language={safeLanguage} setLanguage={setLanguage} />
+          <SearchPage language={safeLanguage} setLanguage={setLanguage} isOnline={isOnline} />
         )}
 
         {view === 'reader' && (

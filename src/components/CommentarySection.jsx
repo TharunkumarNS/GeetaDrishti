@@ -9,16 +9,34 @@ const traditions = [
 
 export default function CommentarySection({ commentaries, language }) {
   const [activeTradition, setActiveTradition] = useState('shankara')
-  const active = traditions.find((tradition) => tradition.id === activeTradition)
+  const active = traditions.find((t) => t.id === activeTradition)
 
-  const safeCommentaries = Array.isArray(commentaries) ? commentaries : []
+  let rawText = ''
 
-  // Find the commentary matching the selected tradition and current language
-  const matchedCommentary = safeCommentaries.find(
-    (c) => c.author_name?.toLowerCase() === activeTradition && c.language === language
-  ) || safeCommentaries.find(
-    (c) => c.author_name?.toLowerCase() === activeTradition
-  )
+  if (commentaries) {
+    if (Array.isArray(commentaries)) {
+      // 1. ONLINE MODE: Backend Array
+      const matched = commentaries.find(
+        (c) => (c.author_name || c.author)?.toLowerCase() === activeTradition && c.language === language
+      ) || commentaries.find(
+        (c) => (c.author_name || c.author)?.toLowerCase() === activeTradition
+      )
+      rawText = matched?.text || ''
+    } else {
+      // 2. OFFLINE MODE: Local JSON Object
+      const authorData = commentaries[activeTradition] || commentaries[activeTradition.toLowerCase()]
+      if (authorData) {
+        rawText = authorData[language] || authorData['en'] || ''
+      }
+    }
+  }
+
+  // Ensure it's a valid string for rendering
+  if (typeof rawText !== 'string') {
+    rawText = String(rawText || '')
+  }
+
+  const isAvailable = rawText.trim() !== '' && !rawText.toLowerCase().includes('unavailable')
 
   return (
     <section className="border-t border-amber-100 pt-4" aria-label={language === 'te' ? 'వ్యాఖ్యానాలు' : 'Commentaries'}>
@@ -26,6 +44,7 @@ export default function CommentarySection({ commentaries, language }) {
         <MessageCircleMore size={17} />
         {language === 'te' ? 'సంప్రదాయ వ్యాఖ్యానాలు' : 'Traditional commentaries'}
       </div>
+      
       <div className="flex gap-1 overflow-x-auto rounded-xl bg-amber-50 p-1" role="tablist" aria-label="Commentary traditions">
         {traditions.map((tradition) => (
           <button
@@ -40,11 +59,12 @@ export default function CommentarySection({ commentaries, language }) {
           </button>
         ))}
       </div>
+      
       <div className="mt-3 rounded-xl border border-amber-100 bg-amber-50/60 p-3.5">
         <p className="text-xs font-bold text-amber-800">{active[language]}</p>
         <p className="mt-1.5 text-sm leading-6 text-stone-700 whitespace-pre-line">
-          {matchedCommentary 
-            ? matchedCommentary.text 
+          {isAvailable 
+            ? rawText 
             : (language === 'te' ? 'ఈ భాషలో వ్యాఖ్యానం అందుబాటులో లేదు.' : 'Commentary not available in this language.')}
         </p>
       </div>

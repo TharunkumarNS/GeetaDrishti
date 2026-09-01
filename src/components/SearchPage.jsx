@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Search, Sparkles, MessageCircleMore } from 'lucide-react'
+import { Search, Sparkles, MessageCircleMore, WifiOff } from 'lucide-react'
+import { chapters, searchVerses } from '../data/gitaData'
 
-export default function SearchPage({ language, setLanguage }) {
+export default function SearchPage({ language, setLanguage, isOnline }) {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
@@ -11,19 +12,67 @@ export default function SearchPage({ language, setLanguage }) {
     if (!query.trim()) return
 
     setLoading(true)
+
+    // 1. If offline, bypass backend and use local keyword search fallback
+    if (!isOnline) {
+      runLocalKeywordSearch(query)
+      setLoading(false)
+      return
+    }
+
+    // 2. Try fetching from FastAPI semantic search backend with a tight 1.2s timeout fallback
     try {
-      const response = await fetch(`http://localhost:8000/search?q=${encodeURIComponent(query)}&language=${language}&limit=5`)
-      const data = await response.json()
-      setResults(data)
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 1200)
+
+      const response = await fetch(`http://localhost:8000/search?q=${encodeURIComponent(query)}&language=${language}&limit=5`, {
+        signal: controller.signal
+      })
+      clearTimeout(timeoutId)
+
+      if (response.ok) {
+        const data = await response.json()
+        setResults(data)
+      } else {
+        throw new Error("Backend search error")
+      }
     } catch (err) {
-      console.error("Search failed:", err)
+      console.warn("Backend search unreachable or offline. Falling back to local keyword search...", err)
+      runLocalKeywordSearch(query)
     } finally {
       setLoading(false)
     }
   }
 
+  // Fallback local keyword matching against cached local dataset
+  const runLocalKeywordSearch = (searchQuery) => {
+    // If using the gitaData keyword helper
+    const rawMatches = searchVerses(searchQuery)
+    
+    // Map matches into a format similar to commentary search results
+    const formatted = rawMatches.map((verse) => ({
+      author_name: language === 'te' ? 'స్థానిక కీవర్డ్ శోధన' : 'Local Keyword Match',
+      language: language,
+      text: `Chapter ${verse.chapterNumber}, Verse ${verse.number}: ${verse[language === 'te' ? 'telugu' : 'english'] || verse.sanskrit}`
+    }))
+
+    setResults(formatted)
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      {/* Offline Notice Banner inside Search */}
+      {!isOnline && (
+        <div className="mb-6 rounded-xl bg-amber-50 border border-amber-200 p-3 flex items-center gap-2.5 text-xs text-amber-900 shadow-sm">
+          <WifiOff size={16} className="text-amber-700 shrink-0" />
+          <span>
+            {language === 'te'
+              ? 'ఆఫ్‌లైన్ మోడ్: AI సెమాంటిక్ శోధన అందుబాటులో లేదు — స్థానిక కీవర్డ్ శోధన ఉపయోగించబడుతోంది.'
+              : 'Offline Mode: AI semantic search is unavailable — using local keyword matching fallback.'}
+          </span>
+        </div>
+      )}
+
       {/* Header */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold mb-3 shadow-sm">
